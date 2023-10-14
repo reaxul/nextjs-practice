@@ -1,5 +1,4 @@
 import React from 'react';
-import useHook from '@/hooks/useHook';
 const MainSection = () => {
     return (
         <div>

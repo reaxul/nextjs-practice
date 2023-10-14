@@ -5,19 +5,19 @@ const Navbar = () => {
     const NavOptions = [
         {
             path: '/',
-            title:'Home',
+            title: 'Home',
         },
         {
             path: 'about',
-            title:'About',
+            title: 'About',
         },
         {
             path: 'blogs',
-            title:'Blogs',
+            title: 'Blogs',
         },
         {
             path: 'dashboard',
-            title:'Dashboard',
+            title: 'Dashboard',
         },
     ]
     return (
@@ -25,10 +25,10 @@ const Navbar = () => {
             <p className='text-2xl font-bold'>Practice NextJs</p>
             <div>
 
-            {
-                NavOptions.map(({ path, title }) => <NavLink activeClassName="text-blue-500" className='mx-2' key={path} href={path}>{title}</NavLink>)
-}
-                </div>
+                {
+                    NavOptions.map(({ path, title }) => <NavLink exact={path==='/'} activeClassName="text-blue-500" className='mx-2' key={path} href={path}>{title}</NavLink>)
+                }
+            </div>
         </div>
     );
 };
