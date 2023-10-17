@@ -1,11 +1,9 @@
+import loadBlogs from '@/app/utils/loadBlogs';
 import Link from 'next/link';
 import React from 'react';
 
 const BlogPage = async() => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        cache:'force-cache'
-    });
-    const blogs = await res.json();
+  const blogs=await loadBlogs();
     return (
         <div className='m-5'>
             <h1 css={{ fontSize: '3rem', fontWeight: 'bold' }}>Welcome to my Blog</h1>
