@@ -1,6 +1,19 @@
+import loadBlogs from '@/app/utils/loadBlogs';
 import loadSingleBlog from '@/app/utils/loadSingleBlog';
-import React from 'react';
 
+export const generateMetadata = async ({ params }) => {
+    const { title } = await loadSingleBlog(params.singleblog);
+    return {
+        title
+    }
+}
+
+export const generateStaticParams = async () => {
+    const blogs = await loadBlogs();
+    return blogs.map(({ id }) => ({
+        singleblog: `${id}`
+    }))
+}
 const DynamicBlog = async ({ params }) => {
     const { id, title, body } = await loadSingleBlog(params.singleblog)
     return (
